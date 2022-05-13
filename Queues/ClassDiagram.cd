@@ -57,7 +57,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="exam::PeekBack&lt;T&gt;" Collapsed="true">
-    <Position X="5" Y="6.25" Width="2" />
+    <Position X="5" Y="6.25" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAEAAABAAAAAAAAAAAAAAAQAAAAAgAA=</HashCode>
       <FileName>PeekBack.h</FileName>

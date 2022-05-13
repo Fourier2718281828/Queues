@@ -25,11 +25,11 @@
 
 namespace exam
 {
-	template<size_t Capacity, typename T>
+	/*template<size_t Capacity, typename T>
 	class PeekBackBoundedPQ : public BoundedPQ<T>, public IPeekBackPriorityQueue<T>
 	{
 
-	};
+	};*/
 }
 
 #endif // !_PEEK_BACK_BOUNDED_PQ_H_

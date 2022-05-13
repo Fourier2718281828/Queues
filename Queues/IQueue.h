@@ -40,16 +40,16 @@ namespace exam
 		inline const T& front()			const;
 		inline size_t	capacity()		const;
 		inline size_t	size()			const;
-		inline void		pop();
-		inline void		put(const T& value);
+		inline void		pop_back();
+		inline void		put_front(const T& value);
 	private:
-		virtual inline bool		do_empty()			const	= 0;
-		virtual inline bool		do_full()			const	= 0;
-		virtual inline const T& do_front()			const	= 0;
-		virtual inline size_t	do_capacity()		const	= 0;
-		virtual inline size_t	do_size()			const	= 0;
-		virtual inline void		do_pop()					= 0;
-		virtual inline void		do_put(const T& value)		= 0;
+		virtual inline bool		do_empty()			const		= 0;
+		virtual inline bool		do_full()			const		= 0;
+		virtual inline const T& do_front()			const		= 0;
+		virtual inline size_t	do_capacity()		const		= 0;
+		virtual inline size_t	do_size()			const		= 0;
+		virtual inline void		do_pop_back()					= 0;
+		virtual inline void		do_put_front(const T& value)	= 0;
 	protected:
 		enum class QueueProblem
 		{
@@ -91,16 +91,16 @@ namespace exam
 	}
 
 	template<typename T>
-	inline void IQueue<T>::pop()
+	inline void IQueue<T>::pop_back()
 	{
-		do_pop();
+		do_pop_back();
 		return;
 	}
 
 	template<typename T>
-	inline void IQueue<T>::put(const T& value)
+	inline void IQueue<T>::put_front(const T& value)
 	{
-		do_put(value);
+		do_put_front(value);
 		return;
 	}
 

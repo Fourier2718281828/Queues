@@ -144,6 +144,9 @@
   <ItemGroup>
     <ClInclude Include="AbstractIterator.h" />
     <ClInclude Include="ArrayDeque.h" />
+    <ClInclude Include="ArrayQueueIterator.h" />
+    <ClInclude Include="ListQueueIterator.h" />
+    <ClInclude Include="Node.h" />
     <ClInclude Include="PeekBackArrayDeque.h" />
     <ClInclude Include="PeekBackBoundedPQ.h" />
     <ClInclude Include="PeekBackListDeque.h" />

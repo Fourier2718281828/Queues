@@ -1,7 +1,5 @@
-#ifndef _ITERABLE_QUEUE_H_
-#define _ITERABLE_QUEUE_H_
-#include "IQueue.h"
-#include "Iterable.h"
+#ifndef _DEQUE_NODE_
+#define _DEQUE_NODE_
 
 //#############################################################################
 //					УќбТЇктно-ор≥Їнтоване програмуванн€Ф					   
@@ -26,39 +24,16 @@
 namespace exam
 {
 	template<typename T>
-	class IterableQueue : public IQueue<T>, public Iterable<T>
+	struct Node
 	{
-	public:
-		IterableQueue()									= default;
-		virtual ~IterableQueue()						= default;
-		IterableQueue(const IterableQueue&)				= delete;
-		IterableQueue& operator=(const IterableQueue&)	= delete;
-	};
+		T _value;
+		Node* _next;
 
-	template<typename T>
-	inline ostream& operator<<(ostream& o, const IterableQueue<T>& q)
-	{
-		o << '[';
-		auto& itor = q.attach();
-
-		while (!itor.stop())
+		Node(const T& value, Node* next)
+			: _value(value), _next(next)
 		{
-			o << *itor;
-			++itor;
-			if (!itor.stop())
-				o << ", ";
+			return;
 		}
-
-		delete& itor;
-
-		o << ']' << ':' << q.size();
-		if (q.capacity() <= 100000)
-			o << '/' << q.capacity();
-
-		
-
-		return o;
-	}
+	};
 }
-
-#endif // !_ITERABLE_QUEUE_H_
+#endif // !_DEQUE_NODE_

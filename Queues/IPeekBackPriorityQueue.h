@@ -10,7 +10,7 @@ namespace exam
 	{
 	public:
 		IPeekBackPriorityQueue()											= default;
-		virtual ~IPeekBackPriorityQueue										= default;
+		virtual ~IPeekBackPriorityQueue()									= default;
 		IPeekBackPriorityQueue(const IPeekBackPriorityQueue&)				= delete;
 		IPeekBackPriorityQueue& operator=(const IPeekBackPriorityQueue&)	= delete;
 	};

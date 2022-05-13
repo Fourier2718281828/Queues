@@ -40,6 +40,9 @@
     <Filter Include="Header Files\Interfaces\Itors">
       <UniqueIdentifier>{619ede5d-b3a0-4494-8d6d-01d6449868de}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Iterators">
+      <UniqueIdentifier>{a90d7cb6-6540-4ddd-bf3e-7d67f53c5084}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -106,6 +109,15 @@
     </ClInclude>
     <ClInclude Include="PeekBackUnboundedPQ.h">
       <Filter>Header Files\Containers\PeekBackPriorityQueues</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrayQueueIterator.h">
+      <Filter>Header Files\Iterators</Filter>
+    </ClInclude>
+    <ClInclude Include="ListQueueIterator.h">
+      <Filter>Header Files\Iterators</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
