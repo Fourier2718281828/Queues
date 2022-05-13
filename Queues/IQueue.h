@@ -54,6 +54,7 @@ namespace exam
 		enum class QueueProblem
 		{
 			EMPTY_QUEUE_FRONT,
+			EMPTY_QUEUE_BACK,
 			EMPTY_QUEUE_POP,
 			FULL_QUEUE_PUT,
 			//PEEKBACK_INDEX_OUT_OF_BOUNDS,  ??
@@ -137,6 +138,8 @@ namespace exam
 		{
 		case QueueProblem::EMPTY_QUEUE_FRONT:
 			return "Empty queue has no front.";
+		case QueueProblem::EMPTY_QUEUE_BACK:
+			return "Empty queue has no back.";
 		case QueueProblem::EMPTY_QUEUE_POP:
 			return "Cannot pop from an empty queue.";
 		case QueueProblem::FULL_QUEUE_PUT:

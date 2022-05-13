@@ -134,7 +134,7 @@ namespace exam
 	inline const T& ArrayDeque<Capacity, T>::do_back() const
 	{
 		if (IQueue<T>::empty())
-			throw IQueue<T>::BadQueue(IQueue<T>::QueueProblem::EMPTY_QUEUE_FRONT);
+			throw IQueue<T>::BadQueue(IQueue<T>::QueueProblem::EMPTY_QUEUE_BACK);
 		return _allocator[_back];
 	}
 

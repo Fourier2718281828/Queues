@@ -28,9 +28,10 @@ namespace exam
 	{
 		T _value;
 		Node* _next;
+		Node* _prev;
 
-		Node(const T& value, Node* next)
-			: _value(value), _next(next)
+		Node(const T& value, Node* next, Node* prev)
+			: _value(value), _next(next), _prev(prev)
 		{
 			return;
 		}

@@ -26,7 +26,7 @@
 namespace exam
 {
 	template<typename T>
-	class ListQueue : virtual public IDeque<T>
+	class ListDeque : virtual public IDeque<T>
 	{
 	private:
 		using IQueue<T>::QueueProblem;
@@ -38,10 +38,10 @@ namespace exam
 		Node<T>* _back;
 		size_t	 _size;
 	public:
-		ListQueue();
-		virtual ~ListQueue();
-		ListQueue(const ListQueue&) = delete;
-		ListQueue& operator=(const ListQueue&) = delete;
+		ListDeque();
+		virtual ~ListDeque();
+		ListDeque(const ListDeque&) = delete;
+		ListDeque& operator=(const ListDeque&) = delete;
 	public:
 		virtual inline ConstIterator& attach()	const;
 		virtual inline Iterator& attach();
@@ -57,5 +57,139 @@ namespace exam
 		virtual inline void		do_put_front(const T& value)	override;
 		virtual inline void		do_put_back(const T& value)		override;
 	};
+
+	template<typename T>
+	inline ListDeque<T>::ListDeque()
+		:	_front(nullptr),
+			_back(nullptr),
+			_size(0)
+	{
+		return;
+	}
+
+	template<typename T>
+	inline ListDeque<T>::~ListDeque()
+	{
+		Node<T>* prev;
+		while (_front)
+		{
+			prev = _front;
+			_front = _front->_next;
+			delete prev;
+		}
+
+		_back = nullptr;
+		_size = 0;
+
+		return;
+	}
+
+	template<typename T>
+	inline typename ListDeque<T>::ConstIterator& ListDeque<T>::attach() const
+	{
+		return *(new ConstIterator(_front));
+	}
+
+	template<typename T>
+	inline typename ListDeque<T>::Iterator& ListDeque<T>::attach()
+	{
+		return *(new Iterator(_front));
+	}
+
+	template<typename T>
+	inline bool ListDeque<T>::do_empty() const
+	{
+		return _front == nullptr;
+	}
+
+	template<typename T>
+	inline bool ListDeque<T>::do_full() const
+	{
+		return false;
+	}
+
+	template<typename T>
+	inline const T& ListDeque<T>::do_front() const
+	{
+		if (IQueue<T>::empty())
+			throw IQueue<T>::BadQueue(QueueProblem::EMPTY_QUEUE_FRONT);
+		return _front->_value;
+	}
+	template<typename T>
+	inline const T& ListDeque<T>::do_back() const
+	{
+		if (IQueue<T>::empty())
+			throw IQueue<T>::BadQueue(QueueProblem::EMPTY_QUEUE_BACK);
+		return _back->_value;
+	}
+	template<typename T>
+	inline size_t ListDeque<T>::do_capacity() const
+	{
+		return -1;
+	}
+
+	template<typename T>
+	inline size_t ListDeque<T>::do_size() const
+	{
+		return _size;
+	}
+
+	template<typename T>
+	inline void ListDeque<T>::do_pop_front()
+	{
+		if (IQueue<T>::empty())
+			throw IQueue<T>::BadQueue(QueueProblem::EMPTY_QUEUE_POP);
+		--_size;
+		Node<T>* old_front = _front;
+		_front = _front->_next;
+		delete old_front;
+
+		return;
+	}
+
+	template<typename T>
+	inline void ListDeque<T>::do_pop_back()
+	{
+		if (IQueue<T>::empty())
+			throw IQueue<T>::BadQueue(QueueProblem::EMPTY_QUEUE_POP);
+		--_size;
+		Node<T>* old_back = _back;
+		_back = _back->_prev;
+		delete old_back;
+
+		return;
+	}
+
+	template<typename T>
+	inline void ListDeque<T>::do_put_front(const T& value)
+	{
+		++_size;
+
+		if (IQueue<T>::empty())
+		{
+			_back = _front = new Node<T>(value, nullptr, nullptr);
+			return;
+		}
+
+		_front = _front->_prev = new Node<T>(value, _front, nullptr);
+
+		return;
+	}
+
+	template<typename T>
+	inline void ListDeque<T>::do_put_back(const T& value)
+	{
+		++_size;
+
+		if (IQueue<T>::empty())
+		{
+			_back = _front = new Node<T>(value, nullptr, nullptr);
+			return;
+		}
+
+		_back = _back->_next = new Node<T>(value, nullptr, _back);
+
+		return;
+	}
 }
 #endif // !_LIST_DEQUE_H_

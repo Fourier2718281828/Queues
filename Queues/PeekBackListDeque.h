@@ -26,7 +26,7 @@
 namespace exam
 {
 	template<typename T>
-	class PeekBackListDeque : public ListQueue<T>, public IPeekBackDeque<T>
+	class PeekBackListDeque : public ListDeque<T>, public IPeekBackDeque<T>
 	{
 
 	};

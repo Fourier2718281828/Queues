@@ -41,6 +41,7 @@ void testDeque(IDeque<int>& d)
 	{
 		cout << d << endl;
 		d.put_front(i);
+		d.put_back(i);
 	}
 
 	cout << d << endl;
@@ -56,29 +57,14 @@ void testDeque(IDeque<int>& d)
 
 int main(void)
 {
-	ArrayDeque<5, int> ad;
-	UnboundedDeque<int> d;
-	/*testDeque(ad);
-	testDeque(ud);*/
+	ArrayDeque<11, int> ad;
+	ListDeque<int> ld;
+	UnboundedDeque<int> ud;
+	testDeque(ad);
+	testDeque(ld);
+	testDeque(ud);
 
 	
-	cout << typeid(d).name() << endl;
-
-	for (int i = 0; i < 5; ++i)
-	{
-		cout << d << endl;
-		d.put_front(i);
-		d.put_back(i);
-	}
-
-	cout << d << endl;
-
-	while (!d.empty())
-	{
-		d.pop_front();
-		cout << d << endl;
-	}
-
-	cout << "----------------------------------------------------" << endl;
+	
 	return 0;
 }

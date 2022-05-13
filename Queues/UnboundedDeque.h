@@ -42,12 +42,9 @@ namespace exam
 		static const size_t DEFAULT_CAPACITY;
 	public:
 		explicit UnboundedDeque(const size_t = DEFAULT_CAPACITY);
-		~UnboundedDeque();
+		virtual ~UnboundedDeque();
 		UnboundedDeque(const UnboundedDeque&) = delete;
 		UnboundedDeque& operator=(const UnboundedDeque&) = delete;
-
-		
-
 	public:
 		virtual inline ConstIterator& attach()	const;
 		virtual inline Iterator& attach();
@@ -147,7 +144,7 @@ namespace exam
 	{
 		if (IQueue<T>::empty())
 		{
-			throw IQueue<T>::BadQueue(IQueue<T>::QueueProblem::EMPTY_QUEUE_FRONT);
+			throw IQueue<T>::BadQueue(IQueue<T>::QueueProblem::EMPTY_QUEUE_BACK);
 		}
 
 		return _allocator[_back];

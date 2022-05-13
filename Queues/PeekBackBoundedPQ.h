@@ -26,9 +26,8 @@
 namespace exam
 {
 	template<size_t Capacity, typename T>
-	class PeekBackBoundedPQ : public BoundedPQ<T>, public IPeekBackPriorityQueue<T>
+	class PeekBackBoundedPQ : public BoundedPQ<Capacity, T>, public IPeekBackPriorityQueue<T>
 	{
-
 	};
 }
 
