@@ -55,8 +55,6 @@ namespace exam
 		if (q.capacity() <= 100000)
 			o << '/' << q.capacity();
 
-		
-
 		return o;
 	}
 }

@@ -46,16 +46,16 @@ namespace exam
 		virtual inline ConstIterator& attach()	const;
 		virtual inline Iterator& attach();
 	private:
-		virtual inline bool		do_empty()			const;
-		virtual inline bool		do_full()			const;
-		virtual inline const T& do_front()			const;
-		virtual inline const T& do_back()			const;
-		virtual inline size_t	do_capacity()		const;
-		virtual inline size_t	do_size()			const;
-		virtual inline void		do_pop();
-		virtual inline void		do_pop_back();
-		virtual inline void		do_put(const T& value);
-		virtual inline void		do_put_back(const T& value);
+		virtual inline bool		do_empty()			const		override;
+		virtual inline bool		do_full()			const		override;
+		virtual inline const T& do_front()			const		override;
+		virtual inline const T& do_back()			const		override;
+		virtual inline size_t	do_capacity()		const		override;
+		virtual inline size_t	do_size()			const		override;
+		virtual inline void		do_pop_front()					override;
+		virtual inline void		do_pop_back()					override;
+		virtual inline void		do_put_front(const T& value)	override;
+		virtual inline void		do_put_back(const T& value)		override;
 	};
 }
 #endif // !_LIST_DEQUE_H_

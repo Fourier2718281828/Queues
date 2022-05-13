@@ -3,7 +3,7 @@
   <Class Name="exam::IQueue&lt;T&gt;" Collapsed="true">
     <Position X="3.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEACEAAABwAAAAAAIIAAIACRAACEAAAAAAgAEAQAAA=</HashCode>
+      <HashCode>AAEAAEACABwAAAAAAIIQAAgCBAACAAAAAAEgAEAQAAA=</HashCode>
       <FileName>IQueue.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -17,7 +17,7 @@
   <Class Name="exam::IDeque&lt;T&gt;" Collapsed="true">
     <Position X="2" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAQAAECAAACAAAAIAAAAAAAAAQAAAAAAAEgAAIAAAA=</HashCode>
+      <HashCode>AAAQAAEAAAACgAAAIAAAAAAAAAQAAAAAAAAgAAIAAEA=</HashCode>
       <FileName>IDeque.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -38,21 +38,21 @@
   <Class Name="exam::ArrayDeque&lt;Capacity, T&gt;" Collapsed="true">
     <Position X="0.5" Y="3.5" Width="1.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAECKAAwDBAEAIAAQAAAAAAAAAACAAAAgAEIQAEA=</HashCode>
       <FileName>ArrayDeque.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="exam::ListQueue&lt;T&gt;" Collapsed="true">
     <Position X="2" Y="3.5" Width="1.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAEAKAAwCBAAAIQAQAAAAAAAAAACAAAAgAEIQAUA=</HashCode>
       <FileName>ListDeque.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="exam::UnboundedDeque&lt;T&gt;" Collapsed="true">
     <Position X="3.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAEBKAAwDBBEAIAAQAAQAAAAAAACAAQAgAEKQAEA=</HashCode>
       <FileName>UnboundedDeque.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -87,7 +87,7 @@
   <Class Name="exam::IPeekBackPriorityQueue&lt;T&gt;" Collapsed="true">
     <Position X="6.25" Y="4.5" Width="1.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAgAABAAAA=</HashCode>
       <FileName>IPeekBackPriorityQueue.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -112,18 +112,18 @@
       <FileName>PeekBackUnboundedDeque.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="exam::PeekBackBoundedPQ&lt;Capacity, T&gt;" Collapsed="true">
-    <Position X="9.75" Y="4.75" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>PeekBackBoundedPQ.h</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="exam::PeekBackUnboundedPQ&lt;T&gt;" Collapsed="true">
     <Position X="9.75" Y="5.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>PeekBackUnboundedPQ.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="exam::PeekBackBoundedPQ&lt;Capacity, T&gt;" Collapsed="true">
+    <Position X="9.75" Y="4.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PeekBackBoundedPQ.h</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

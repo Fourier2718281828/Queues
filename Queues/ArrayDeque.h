@@ -77,8 +77,7 @@ namespace exam
 	template<size_t Capacity, typename T>
 	inline ArrayDeque<Capacity, T>::~ArrayDeque()
 	{
-		_size = 0;
-		_front = _back = 0;
+		 _size = _front = _back = 0;
 		return;
 	}
 

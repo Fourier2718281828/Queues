@@ -33,15 +33,16 @@ using std::endl;
 // project : Queues, developed by Ruslan Zymovets (SE-1)
 //#############################################################################
 
-int main(void)
+void testDeque(IDeque<int>& d)
 {
-	ArrayDeque<5, int> d;
+	cout << typeid(d).name() << endl;
 
-	for (int i = 0; !d.full(); ++i)
+	for (int i = 0; i < 5; ++i)
 	{
 		cout << d << endl;
 		d.put_front(i);
 	}
+
 	cout << d << endl;
 
 	while (!d.empty())
@@ -50,5 +51,34 @@ int main(void)
 		cout << d << endl;
 	}
 
+	cout << "----------------------------------------------------" << endl;
+}
+
+int main(void)
+{
+	ArrayDeque<5, int> ad;
+	UnboundedDeque<int> d;
+	/*testDeque(ad);
+	testDeque(ud);*/
+
+	
+	cout << typeid(d).name() << endl;
+
+	for (int i = 0; i < 5; ++i)
+	{
+		cout << d << endl;
+		d.put_front(i);
+		d.put_back(i);
+	}
+
+	cout << d << endl;
+
+	while (!d.empty())
+	{
+		d.pop_front();
+		cout << d << endl;
+	}
+
+	cout << "----------------------------------------------------" << endl;
 	return 0;
 }
