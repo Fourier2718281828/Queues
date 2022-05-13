@@ -141,6 +141,28 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AbstractIterator.h" />
+    <ClInclude Include="ArrayDeque.h" />
+    <ClInclude Include="PeekBackArrayDeque.h" />
+    <ClInclude Include="PeekBackBoundedPQ.h" />
+    <ClInclude Include="PeekBackListDeque.h" />
+    <ClInclude Include="PeekBackUnboundedDeque.h" />
+    <ClInclude Include="PeekBackUnboundedPQ.h" />
+    <ClInclude Include="UnboundedPQ.h" />
+    <ClInclude Include="Conditional.h" />
+    <ClInclude Include="IDeque.h" />
+    <ClInclude Include="IPeekBackPriorityQueue.h" />
+    <ClInclude Include="IPriorityQueue.h" />
+    <ClInclude Include="IQueue.h" />
+    <ClInclude Include="Iterable.h" />
+    <ClInclude Include="IterableQueue.h" />
+    <ClInclude Include="ListDeque.h" />
+    <ClInclude Include="PeekBack.h" />
+    <ClInclude Include="IPeekBackDeque.h" />
+    <ClInclude Include="UnboundedDeque.h" />
+    <ClInclude Include="BoundedPQ.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

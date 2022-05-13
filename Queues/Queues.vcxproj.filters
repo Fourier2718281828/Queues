@@ -13,10 +13,99 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Interfaces">
+      <UniqueIdentifier>{cf95f74a-8910-417c-9873-4eac5d6959f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Tools">
+      <UniqueIdentifier>{10e6c271-7724-4d3e-ac2e-be7065981363}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Containers">
+      <UniqueIdentifier>{eae80f05-c05c-4f88-8e42-4f36bc891056}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Containers\Deques">
+      <UniqueIdentifier>{1ae2db02-6f37-44ff-b57f-4c0632347a79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Containers\PriorityQueues">
+      <UniqueIdentifier>{cc5f3d4c-3362-4ddd-8f17-8e84b3c8b62d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Containers\PeekBackDeques">
+      <UniqueIdentifier>{cba910c5-9af6-4931-bcab-18617966112c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Containers\PeekBackPriorityQueues">
+      <UniqueIdentifier>{840db9e8-6b70-49e5-9e96-05fbc32438c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Interfaces\PeekBack">
+      <UniqueIdentifier>{0736657f-5226-47bd-b896-38936736386c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Interfaces\Itors">
+      <UniqueIdentifier>{619ede5d-b3a0-4494-8d6d-01d6449868de}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="IDeque.h">
+      <Filter>Header Files\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Conditional.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="IQueue.h">
+      <Filter>Header Files\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="IPriorityQueue.h">
+      <Filter>Header Files\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrayDeque.h">
+      <Filter>Header Files\Containers\Deques</Filter>
+    </ClInclude>
+    <ClInclude Include="ListDeque.h">
+      <Filter>Header Files\Containers\Deques</Filter>
+    </ClInclude>
+    <ClInclude Include="UnboundedDeque.h">
+      <Filter>Header Files\Containers\Deques</Filter>
+    </ClInclude>
+    <ClInclude Include="IPeekBackDeque.h">
+      <Filter>Header Files\Interfaces\PeekBack</Filter>
+    </ClInclude>
+    <ClInclude Include="PeekBack.h">
+      <Filter>Header Files\Interfaces\PeekBack</Filter>
+    </ClInclude>
+    <ClInclude Include="Iterable.h">
+      <Filter>Header Files\Interfaces\Itors</Filter>
+    </ClInclude>
+    <ClInclude Include="IterableQueue.h">
+      <Filter>Header Files\Interfaces\Itors</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractIterator.h">
+      <Filter>Header Files\Interfaces\Itors</Filter>
+    </ClInclude>
+    <ClInclude Include="IPeekBackPriorityQueue.h">
+      <Filter>Header Files\Interfaces\PeekBack</Filter>
+    </ClInclude>
+    <ClInclude Include="UnboundedPQ.h">
+      <Filter>Header Files\Containers\PriorityQueues</Filter>
+    </ClInclude>
+    <ClInclude Include="BoundedPQ.h">
+      <Filter>Header Files\Containers\PriorityQueues</Filter>
+    </ClInclude>
+    <ClInclude Include="PeekBackArrayDeque.h">
+      <Filter>Header Files\Containers\PeekBackDeques</Filter>
+    </ClInclude>
+    <ClInclude Include="PeekBackListDeque.h">
+      <Filter>Header Files\Containers\PeekBackDeques</Filter>
+    </ClInclude>
+    <ClInclude Include="PeekBackUnboundedDeque.h">
+      <Filter>Header Files\Containers\PeekBackDeques</Filter>
+    </ClInclude>
+    <ClInclude Include="PeekBackBoundedPQ.h">
+      <Filter>Header Files\Containers\PeekBackPriorityQueues</Filter>
+    </ClInclude>
+    <ClInclude Include="PeekBackUnboundedPQ.h">
+      <Filter>Header Files\Containers\PeekBackPriorityQueues</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
