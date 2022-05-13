@@ -55,6 +55,31 @@ void testDeque(IDeque<int>& d)
 	cout << "----------------------------------------------------" << endl;
 }
 
+void testPeekBackDeque(IPeekBackDeque<int>& d)
+{
+	cout << typeid(d).name() << endl;
+
+	for (int i = 0; i < 5; ++i)
+	{
+		cout << d << endl;
+		d.put_front(i);
+		d.put_back(i);
+	}
+
+	cout << d << endl;
+
+	cout << "Using peekback :" << endl;
+	
+	for (size_t i = 0u; i < d.size(); ++i)
+	{
+		cout << d.peekback(i) << ' ';
+	}
+
+	cout << endl;
+
+	cout << "----------------------------------------------------" << endl;
+}
+
 int main(void)
 {
 	ArrayDeque<11, int> ad;
@@ -64,7 +89,13 @@ int main(void)
 	testDeque(ld);
 	testDeque(ud);
 
-	
-	
+	PeekBackArrayDeque<11, int> pad;
+	PeekBackListDeque<int> pld;
+	PeekBackUnboundedDeque<int> pud;
+	testPeekBackDeque(pad);
+	testPeekBackDeque(pld);
+	testPeekBackDeque(pud);
+
+
 	return 0;
 }

@@ -57,7 +57,7 @@ namespace exam
 			EMPTY_QUEUE_BACK,
 			EMPTY_QUEUE_POP,
 			FULL_QUEUE_PUT,
-			//PEEKBACK_INDEX_OUT_OF_BOUNDS,  ??
+			PEEKBACK_INDEX_OUT_OF_BOUNDS, 
 		};
 	};
 
@@ -144,8 +144,8 @@ namespace exam
 			return "Cannot pop from an empty queue.";
 		case QueueProblem::FULL_QUEUE_PUT:
 			return "Cannot put to a full queue.";
-		/*case QueueProblem::PEEKBACK_INDEX_OUT_OF_BOUNDS:
-			return "The non-existent element cannot be peeked.";*/
+		case QueueProblem::PEEKBACK_INDEX_OUT_OF_BOUNDS:
+			return "The non-existent element cannot be peeked.";
 		default:
 			return "The problem wasn not stated";
 		}

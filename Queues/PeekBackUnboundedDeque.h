@@ -26,10 +26,28 @@
 namespace exam
 {
 	template<typename T>
-	class PeekBackUnboundedQueue : public UnboundedDeque<T>, public IPeekBackDeque<T>
+	class PeekBackUnboundedDeque : public UnboundedDeque<T>, public IPeekBackDeque<T>
 	{
-
+	public:
+		PeekBackUnboundedDeque()											= default;
+		virtual ~PeekBackUnboundedDeque()									= default;
+		PeekBackUnboundedDeque(const PeekBackUnboundedDeque&)				= delete;
+		PeekBackUnboundedDeque& operator=(const PeekBackUnboundedDeque&)	= delete;
+	private:
+		virtual inline const T& do_peekback(const size_t) const override;
 	};
-}
 
+	template<typename T>
+	inline const T& PeekBackUnboundedDeque<T>::do_peekback(const size_t i) const
+	{
+		if (i >= IQueue<T>::size())
+		{
+			throw IQueue<T>::BadQueue(IQueue<T>::QueueProblem::PEEKBACK_INDEX_OUT_OF_BOUNDS);
+		}
+		auto& itor(UnboundedDeque<T>::attach());
+		const T& res(*(itor += i));
+		delete& itor;
+		return res;
+	}
+}
 #endif // !_PEEK_BACK_UNBOUNDED_DEQUE_H_
