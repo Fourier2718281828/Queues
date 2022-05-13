@@ -1,6 +1,6 @@
 #ifndef _UBOUNDED_PQ_H
 #define _UBOUNDED_PQ_H
-#include "IPriorityQueue.h"
+#include "IterableQueue.h"
 
 //#############################################################################
 //					УќбТЇктно-ор≥Їнтоване програмуванн€Ф					   
@@ -25,7 +25,7 @@
 namespace exam
 {
 	template<typename T>
-	class UnboundedPQ : virtual public IPriorityQueue<T>
+	class UnboundedPQ : virtual public IterableQueue<T>
 	{
 
 	};

@@ -59,9 +59,6 @@
     <ClInclude Include="IQueue.h">
       <Filter>Header Files\Interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="IPriorityQueue.h">
-      <Filter>Header Files\Interfaces</Filter>
-    </ClInclude>
     <ClInclude Include="ArrayDeque.h">
       <Filter>Header Files\Containers\Deques</Filter>
     </ClInclude>
@@ -86,7 +83,7 @@
     <ClInclude Include="AbstractIterator.h">
       <Filter>Header Files\Interfaces\Itors</Filter>
     </ClInclude>
-    <ClInclude Include="IPeekBackPriorityQueue.h">
+    <ClInclude Include="IPeekBackQueue.h">
       <Filter>Header Files\Interfaces\PeekBack</Filter>
     </ClInclude>
     <ClInclude Include="UnboundedPQ.h">
@@ -119,8 +116,5 @@
     <ClInclude Include="ListQueueIterator.h">
       <Filter>Header Files\Iterators</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

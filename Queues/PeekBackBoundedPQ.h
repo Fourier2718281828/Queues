@@ -1,6 +1,6 @@
 #ifndef _PEEK_BACK_BOUNDED_PQ_H_
 #define _PEEK_BACK_BOUNDED_PQ_H_
-#include "IPeekBackPriorityQueue.h"
+#include "IterableQueue.h"
 #include "BoundedPQ.h"
 
 //#############################################################################
@@ -26,7 +26,7 @@
 namespace exam
 {
 	template<size_t Capacity, typename T>
-	class PeekBackBoundedPQ : public BoundedPQ<Capacity, T>, public IPeekBackPriorityQueue<T>
+	class PeekBackBoundedPQ : public BoundedPQ<Capacity, T>, public IterableQueue<T>
 	{
 	};
 }

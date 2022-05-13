@@ -58,8 +58,8 @@ namespace exam
 		virtual inline void		do_put_front(const T& value)	override;
 		virtual inline void		do_put_back	(const T& value)	override;
 	private:
-		inline size_t next_index(const size_t);
-		inline size_t prev_index(const size_t);
+		inline size_t next_index(const size_t) const;
+		inline size_t prev_index(const size_t) const;
 	};
 
 	template<typename T>
@@ -157,8 +157,6 @@ namespace exam
 			throw IQueue<T>::BadQueue(IQueue<T>::QueueProblem::EMPTY_QUEUE_POP);
 		--_size;
 		_front = next_index(_front);
-		//if (IQueue<T>::empty())
-		//	_back = BOT_OF_DEQUE;
 	}
 
 	template<size_t Capacity, typename T>
@@ -168,8 +166,6 @@ namespace exam
 			throw IQueue<T>::BadQueue(IQueue<T>::QueueProblem::EMPTY_QUEUE_POP);
 		--_size;
 		_back = prev_index(_back);
-		//if (IQueue<T>::empty())
-		//	_back = BOT_OF_DEQUE;
 	}
 
 	template<size_t Capacity, typename T>
@@ -191,13 +187,13 @@ namespace exam
 	}
 
 	template<size_t Capacity, typename T>
-	inline size_t ArrayDeque<Capacity, T>::next_index(const size_t i)
+	inline size_t ArrayDeque<Capacity, T>::next_index(const size_t i) const
 	{
 		return (i + 1 < IQueue<T>::capacity()) ? (i + 1) : 0;
 	}
 
 	template<size_t Capacity, typename T>
-	inline size_t ArrayDeque<Capacity, T>::prev_index(const size_t i)
+	inline size_t ArrayDeque<Capacity, T>::prev_index(const size_t i) const
 	{
 		return (i > 0) ? (i - 1) : (IQueue<T>::capacity() - 1);
 	}

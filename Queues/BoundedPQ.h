@@ -1,6 +1,6 @@
 #ifndef _BOUNDED_PQ_H
 #define _BOUNDED_PQ_H
-#include "IPriorityQueue.h"
+#include "IterableQueue.h"
 
 //#############################################################################
 //					УќбТЇктно-ор≥Їнтоване програмуванн€Ф					   
@@ -25,9 +25,149 @@
 namespace exam
 {
 	template<size_t Capacity, typename T>
-	class BoundedPQ : virtual public IPriorityQueue<T>
+	class BoundedPQ : virtual public IterableQueue<T>
 	{
-
+	public:
+		using Iterator = ArrayQueueIterator<false, T>;
+		using ConstIterator = ArrayQueueIterator<true, T>;
+	private:
+		size_t _size;
+		size_t _front;
+		size_t _back;
+		T _allocator[Capacity];
+	public:
+		BoundedPQ();
+		virtual ~BoundedPQ();
+		BoundedPQ(const BoundedPQ&) = delete;
+		BoundedPQ& operator=(const BoundedPQ&) = delete;
+	public:
+		virtual inline ConstIterator& attach()	const;
+		virtual inline Iterator& attach();
+	private:
+		virtual inline bool		do_empty()			const		override;
+		virtual inline bool		do_full()			const		override;
+		virtual inline const T& do_front()			const		override;
+		virtual inline size_t	do_capacity()		const		override;
+		virtual inline size_t	do_size()			const		override;
+		virtual inline void		do_pop_back()					override;
+		virtual inline void		do_put_front(const T& value)	override;
+	private:
+		inline size_t next_index(const size_t) const;
+		inline size_t prev_index(const size_t) const;
 	};
+
+	template<typename T>
+	class BoundedPQ<0, T>;
+
+		template<size_t Capacity, typename T>
+	inline BoundedPQ<Capacity, T>::BoundedPQ()
+		: _size(0), _front(0), _back(-1)
+	{
+		return;
+	}
+
+	template<size_t Capacity, typename T>
+	inline BoundedPQ<Capacity, T>::~BoundedPQ()
+	{
+		_size = _front = _back = 0;
+		return;
+	}
+
+	template<size_t Capacity, typename T>
+	inline typename BoundedPQ<Capacity, T>::ConstIterator& BoundedPQ<Capacity, T>::attach() const
+	{
+		return *(
+			new ConstIterator
+			(
+				&_allocator[0],
+				&_allocator[_front],
+				&_allocator[_back],
+				IQueue<T>::size(),
+				IQueue<T>::capacity()
+			)
+			);
+	}
+
+	template<size_t Capacity, typename T>
+	inline typename BoundedPQ<Capacity, T>::Iterator& BoundedPQ<Capacity, T>::attach()
+	{
+		return *(
+			new Iterator
+			(
+				&_allocator[0],
+				&_allocator[_front],
+				&_allocator[_back],
+				IQueue<T>::size(),
+				IQueue<T>::capacity())
+			);
+	}
+
+	template<size_t Capacity, typename T>
+	inline bool BoundedPQ<Capacity, T>::do_empty() const
+	{
+		return IQueue<T>::size() == 0;
+	}
+
+	template<size_t Capacity, typename T>
+	inline bool BoundedPQ<Capacity, T>::do_full() const
+	{
+		return IQueue<T>::size() == IQueue<T>::capacity();
+	}
+
+	template<size_t Capacity, typename T>
+	inline const T& BoundedPQ<Capacity, T>::do_front() const
+	{
+		if (IQueue<T>::empty())
+			throw IQueue<T>::BadQueue(IQueue<T>::QueueProblem::EMPTY_QUEUE_FRONT);
+		return _allocator[_front];
+	}
+
+	template<size_t Capacity, typename T>
+	inline size_t BoundedPQ<Capacity, T>::do_capacity() const
+	{
+		return Capacity;
+	}
+
+	template<size_t Capacity, typename T>
+	inline size_t BoundedPQ<Capacity, T>::do_size() const
+	{
+		return _size;
+	}
+
+	template<size_t Capacity, typename T>
+	inline void BoundedPQ<Capacity, T>::do_pop_back()
+	{
+		if (IQueue<T>::empty())
+			throw IQueue<T>::BadQueue(IQueue<T>::QueueProblem::EMPTY_QUEUE_POP);
+		--_size;
+		_front = next_index(_front);
+	}
+
+	template<size_t Capacity, typename T>
+	inline void BoundedPQ<Capacity, T>::do_put_front(const T& value)
+	{
+		if (IQueue<T>::full())
+			throw IQueue<T>::BadQueue(IQueue<T>::QueueProblem::FULL_QUEUE_PUT);
+		++_size;
+		_allocator[_back = next_index(_back)] = value;
+
+		for (size_t i = _back; i != _front; i = prev_index(i))
+		{
+			if (_allocator[i] < _allocator[prev_index(i)])
+				std::swap(_allocator[prev_index(i)], _allocator[i]);
+		}
+	}
+
+	template<size_t Capacity, typename T>
+	inline size_t BoundedPQ<Capacity, T>::next_index(const size_t i) const
+	{
+		return (i + 1 < IQueue<T>::capacity()) ? (i + 1) : 0;
+	}
+
+	template<size_t Capacity, typename T>
+	inline size_t BoundedPQ<Capacity, T>::prev_index(const size_t i) const
+	{
+		return (i > 0) ? (i - 1) : (IQueue<T>::capacity() - 1);
+	}
 }
 #endif // !_BOUNDED_PQ_H

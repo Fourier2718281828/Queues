@@ -82,7 +82,7 @@ void testPeekBackDeque(IPeekBackDeque<int>& d)
 
 int main(void)
 {
-	ArrayDeque<11, int> ad;
+	/*ArrayDeque<11, int> ad;
 	ListDeque<int> ld;
 	UnboundedDeque<int> ud;
 	testDeque(ad);
@@ -94,8 +94,30 @@ int main(void)
 	PeekBackUnboundedDeque<int> pud;
 	testPeekBackDeque(pad);
 	testPeekBackDeque(pld);
-	testPeekBackDeque(pud);
+	testPeekBackDeque(pud);*/
 
+	BoundedPQ<10, int> q;
+	cout << q << endl;
+	q.put_front(5);
+	cout << q << endl;
+	q.put_front(4);
+	cout << q << endl;
+	q.put_front(10);
+	cout << q << endl;
+	q.put_front(8);
+	cout << q << endl;
+	q.pop_back();
+	cout << q << endl;
+	q.put_front(7);
+	cout << q << endl;
+	q.put_front(1);
+	cout << q << endl;
+	q.put_front(1);
+	q.put_front(1);
+	q.put_front(1);
+	cout << q << endl;
+	q.put_front(0);
+	cout << q << endl;
 
 	return 0;
 }

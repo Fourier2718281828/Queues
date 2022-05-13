@@ -1,6 +1,6 @@
 #ifndef _PEEK_BACK_UNBOUNDED_PQ_
 #define _PEEK_BACK_UNBOUNDED_PQ_
-#include "IPeekBackPriorityQueue.h"
+#include "IPeekBackQueue.h"
 #include "UnboundedPQ.h"
 
 //#############################################################################
@@ -26,7 +26,7 @@
 namespace exam
 {
 	template<typename T>
-	class PeekBackUnboundedPQ : public UnboundedPQ<T>, public IPeekBackPriorityQueue<T>
+	class PeekBackUnboundedPQ : public UnboundedPQ<T>, public IPeekBackQueue<T>
 	{
 
 	};
