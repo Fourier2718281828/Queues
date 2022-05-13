@@ -1,6 +1,6 @@
 #ifndef _ARRAY_DEQUE_H_
 #define _ARRAY_DEQUE_H_
-#include "IterableQueue.h"
+#include "IDeque.h"
 
 //#############################################################################
 //					УќбТЇктно-ор≥Їнтоване програмуванн€Ф					   
@@ -25,7 +25,7 @@
 namespace exam
 {
 	template<size_t Capacity, typename T>
-	class ArrayDeque : virtual public IterableDeque<T>
+	class ArrayDeque : virtual public IDeque<T>
 	{
 
 	};

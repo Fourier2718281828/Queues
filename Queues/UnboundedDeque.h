@@ -1,6 +1,6 @@
 #ifndef _UNBOUDED_DEQUE_H_
 #define	_UNBOUDED_DEQUE_H_
-#include "IterableQueue.h"
+#include "IDeque.h"
 
 //#############################################################################
 //					УќбТЇктно-ор≥Їнтоване програмуванн€Ф					   
@@ -25,7 +25,7 @@
 namespace exam
 {
 	template<typename T>
-	class UnboundedDeque : virtual public IterableDeque<T>
+	class UnboundedDeque : virtual public IDeque<T>
 	{
 
 	};
