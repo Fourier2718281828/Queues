@@ -49,8 +49,8 @@ namespace exam
 		virtual inline const T& do_front()			const		override;
 		virtual inline size_t	do_capacity()		const		override;
 		virtual inline size_t	do_size()			const		override;
-		virtual inline void		do_pop_back()					override;
-		virtual inline void		do_put_front(const T& value)	override;
+		virtual inline void		do_pop_front()					override;
+		virtual inline void		do_put_back(const T& value)		override;
 	private:
 		inline size_t next_index(const size_t) const;
 		inline size_t prev_index(const size_t) const;
@@ -135,7 +135,7 @@ namespace exam
 	}
 
 	template<size_t Capacity, typename T>
-	inline void BoundedPQ<Capacity, T>::do_pop_back()
+	inline void BoundedPQ<Capacity, T>::do_pop_front()
 	{
 		if (IQueue<T>::empty())
 			throw IQueue<T>::BadQueue(IQueue<T>::QueueProblem::EMPTY_QUEUE_POP);
@@ -144,7 +144,7 @@ namespace exam
 	}
 
 	template<size_t Capacity, typename T>
-	inline void BoundedPQ<Capacity, T>::do_put_front(const T& value)
+	inline void BoundedPQ<Capacity, T>::do_put_back(const T& value)
 	{
 		if (IQueue<T>::full())
 			throw IQueue<T>::BadQueue(IQueue<T>::QueueProblem::FULL_QUEUE_PUT);

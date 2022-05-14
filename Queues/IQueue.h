@@ -31,25 +31,25 @@ namespace exam
 	public:
 		class BadQueue;
 	public:
-		IQueue() = default;
-		virtual ~IQueue() = default;
-		IQueue(const IQueue&) = delete;
-		IQueue& operator=(const IQueue&) = delete;
+		IQueue()							= default;
+		virtual ~IQueue()					= default;
+		IQueue(const IQueue&)				= delete;
+		IQueue& operator=(const IQueue&)	= delete;
 		inline bool		empty()			const;
 		inline bool		full()			const;
 		inline const T& front()			const;
 		inline size_t	capacity()		const;
 		inline size_t	size()			const;
-		inline void		pop_back();
-		inline void		put_front(const T& value);
+		inline void		pop_front();
+		inline void		put_back(const T& value);
 	private:
 		virtual inline bool		do_empty()			const		= 0;
 		virtual inline bool		do_full()			const		= 0;
 		virtual inline const T& do_front()			const		= 0;
 		virtual inline size_t	do_capacity()		const		= 0;
 		virtual inline size_t	do_size()			const		= 0;
-		virtual inline void		do_pop_back()					= 0;
-		virtual inline void		do_put_front(const T& value)	= 0;
+		virtual inline void		do_pop_front()					= 0;
+		virtual inline void		do_put_back(const T& value)		= 0;
 	protected:
 		enum class QueueProblem
 		{
@@ -92,16 +92,16 @@ namespace exam
 	}
 
 	template<typename T>
-	inline void IQueue<T>::pop_back()
+	inline void IQueue<T>::pop_front()
 	{
-		do_pop_back();
+		do_pop_front();
 		return;
 	}
 
 	template<typename T>
-	inline void IQueue<T>::put_front(const T& value)
+	inline void IQueue<T>::put_back(const T& value)
 	{
-		do_put_front(value);
+		do_put_back(value);
 		return;
 	}
 

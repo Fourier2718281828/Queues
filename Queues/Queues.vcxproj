@@ -166,7 +166,7 @@
     <ClInclude Include="BoundedPQ.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram.cd" />
+    <None Include="Iterator Hierarchy.cd" />
     <None Include="Queue Hierarchy.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

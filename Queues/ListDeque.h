@@ -142,6 +142,8 @@ namespace exam
 		--_size;
 		Node<T>* old_front = _front;
 		_front = _front->_next;
+		if (_front) _front->_prev = nullptr;
+		else		_back = nullptr;
 		delete old_front;
 
 		return;
@@ -155,6 +157,8 @@ namespace exam
 		--_size;
 		Node<T>* old_back = _back;
 		_back = _back->_prev;
+		if (_back)	_back->_next = nullptr;
+		else		_front = nullptr;
 		delete old_back;
 
 		return;

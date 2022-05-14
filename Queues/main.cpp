@@ -37,21 +37,45 @@ void testDeque(IDeque<int>& d)
 {
 	cout << typeid(d).name() << endl;
 
-	for (int i = 0; i < 5; ++i)
-	{
-		cout << d << endl;
-		d.put_front(i);
-		d.put_back(i);
-	}
-
 	cout << d << endl;
-
-	while (!d.empty())
+	try
 	{
-		d.pop_front();
-		cout << d << endl;
+		cout << "front or back :" << endl;
+		cout << "front = " << d.front() << ", back = " << d.back() << endl;
+	}
+	catch (const IDeque<int>::BadQueue& bq)
+	{
+		bq.print_diagnosis(cout);
 	}
 
+	for (int i = 0; i < 4; ++i)
+	{
+		d.put_front(i);
+		cout << "put_front(" << i << ") : " << d << endl;
+		d.put_back(i);
+		cout << "put_back(" << i << ") : " << d << endl;
+		cout << "front = " << d.front() << ", back = " << d.back() << endl;
+	}
+
+	try
+	{
+		while (!d.empty())
+		{
+			d.pop_front();
+			cout << "pop_front() : " << d << endl;
+			if (!d.empty())
+			{
+				d.pop_back();
+				cout << "pop_back() : " << d << endl;
+			}
+			cout << "front = " << d.front() << ", back = " << d.back() << endl;
+		}
+	}
+	catch (const IDeque<int>::BadQueue& bq)
+	{
+		bq.print_diagnosis(cout);
+	}
+	
 	cout << "----------------------------------------------------" << endl;
 }
 
@@ -59,7 +83,7 @@ void testPeekBackDeque(IPeekBackDeque<int>& d)
 {
 	cout << typeid(d).name() << endl;
 
-	for (int i = 0; i < 5; ++i)
+	for (int i = 0; i < 4; ++i)
 	{
 		cout << d << endl;
 		d.put_front(i);
@@ -85,7 +109,7 @@ void testIterableQueue(IterableQueue<int>& q)
 
 }
 
-void testIterablePeekBackQueue(IterableQueue<int>& q)
+void testPeekBackQueue(IPeekBackQueue<int>& q)
 {
 
 }
@@ -93,42 +117,42 @@ void testIterablePeekBackQueue(IterableQueue<int>& q)
 
 int main(void)
 {
-	/*ArrayDeque<11, int> ad;
+	ArrayDeque<11, int> ad;
 	ListDeque<int> ld;
 	UnboundedDeque<int> ud;
 	testDeque(ad);
 	testDeque(ld);
 	testDeque(ud);
 
-	PeekBackArrayDeque<11, int> pad;
+	/*PeekBackArrayDeque<11, int> pad;
 	PeekBackListDeque<int> pld;
 	PeekBackUnboundedDeque<int> pud;
 	testPeekBackDeque(pad);
 	testPeekBackDeque(pld);
 	testPeekBackDeque(pud);*/
 
-	UnboundedPQ<int> q;
+	/*UnboundedPQ<int> q;
 	cout << q << endl;
-	q.put_front(5);
+	q.put_back(5);
 	cout << q << endl;
-	q.put_front(4);
+	q.put_back(4);
 	cout << q << endl;
-	q.put_front(10);
+	q.put_back(10);
 	cout << q << endl;
-	q.put_front(8);
+	q.put_back(8);
 	cout << q << endl;
-	q.pop_back();
+	q.pop_front();
 	cout << q << endl;
-	q.put_front(7);
+	q.put_back(7);
 	cout << q << endl;
-	q.put_front(1);
+	q.put_back(1);
 	cout << q << endl;
-	q.put_front(1);
-	q.put_front(1);
-	q.put_front(1);
+	q.put_back(1);
+	q.put_back(1);
+	q.put_back(1);
 	cout << q << endl;
-	q.put_front(0);
-	cout << q << endl;
+	q.put_back(0);
+	cout << q << endl;*/
 
 	return 0;
 }

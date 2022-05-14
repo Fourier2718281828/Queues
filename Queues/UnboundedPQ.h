@@ -50,8 +50,8 @@ namespace exam
 		virtual inline const T& do_front()			const		override;
 		virtual inline size_t	do_capacity()		const		override;
 		virtual inline size_t	do_size()			const		override;
-		virtual inline void		do_pop_back()					override;
-		virtual inline void		do_put_front(const T& value)	override;
+		virtual inline void		do_pop_front()					override;
+		virtual inline void		do_put_back(const T& value)	override;
 	private:
 		inline void resize(const size_t);
 		inline void emerge(const size_t);
@@ -144,7 +144,7 @@ namespace exam
 	}
 
 	template<typename T>
-	inline void UnboundedPQ<T>::do_pop_back()
+	inline void UnboundedPQ<T>::do_pop_front()
 	{
 		if (IQueue<T>::empty())
 		{
@@ -163,7 +163,7 @@ namespace exam
 	}
 
 	template<typename T>
-	inline void UnboundedPQ<T>::do_put_front(const T& value)
+	inline void UnboundedPQ<T>::do_put_back(const T& value)
 	{
 		if (IQueue<T>::full())
 		{

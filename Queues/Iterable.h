@@ -31,10 +31,8 @@ namespace exam
 		using Iterator = AbstractIterator<false, T>;
 		using ConstIterator = AbstractIterator<true, T>;
 	public:
-		Iterable() = default;
-		virtual ~Iterable() = default;
-		/*Iterable(const Iterable&)				= delete;
-		Iterable& operator=(const Iterable&)	= delete;*/ //?????
+		Iterable()				= default;
+		virtual ~Iterable()		= default;
 	public:
 		virtual inline	ConstIterator& attach()	const	= 0;
 		virtual inline	Iterator& attach()				= 0;

@@ -36,12 +36,12 @@ namespace exam
 		IDeque& operator=(const IDeque&)	= delete;
 	public:
 		inline const T& back()		const;
-		inline void pop_front();
-		inline void put_back(const T& value);
+		inline void pop_back();
+		inline void put_front(const T& value);
 	private:
 		virtual inline const T& do_back()	const			= 0;
-		virtual inline void do_pop_front()					= 0;
-		virtual inline void do_put_back(const T& value)		= 0;
+		virtual inline void do_pop_back()					= 0;
+		virtual inline void do_put_front(const T& value)	= 0;
 	};
 
 	template<typename T>
@@ -51,15 +51,15 @@ namespace exam
 	}
 
 	template<typename T>
-	inline void IDeque<T>::pop_front()
+	inline void IDeque<T>::pop_back()
 	{
-		return do_pop_front();
+		return do_pop_back();
 	}
 
 	template<typename T>
-	inline void IDeque<T>::put_back(const T& value)
+	inline void IDeque<T>::put_front(const T& value)
 	{
-		return do_put_back(value);
+		return do_put_front(value);
 	}
 }
 #endif // !_IDEQUE_H_
