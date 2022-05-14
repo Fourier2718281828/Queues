@@ -68,7 +68,7 @@ namespace exam
 	inline UnboundedPQ<T>::UnboundedPQ(const size_t capacity)
 		:	_size(0),
 			_capacity(capacity),
-			_allocator(new T[capacity])
+			_allocator(new T[capacity + 1])
 	{
 		return;
 	}
@@ -92,7 +92,7 @@ namespace exam
 				&_allocator[1],
 				&_allocator[IQueue<T>::size()],
 				IQueue<T>::size(),
-				IQueue<T>::capacity()
+				IQueue<T>::capacity() + 1
 			)
 			);
 	}
@@ -107,7 +107,7 @@ namespace exam
 				&_allocator[1],
 				&_allocator[IQueue<T>::size()],
 				IQueue<T>::size(),
-				IQueue<T>::capacity())
+				IQueue<T>::capacity() + 1)
 			);
 	}
 
@@ -179,7 +179,7 @@ namespace exam
 	{
 		auto& itor_prev = attach();
 		T* prev = _allocator;
-		_allocator = new T[new_capacity];
+		_allocator = new T[new_capacity + 1];
 		_capacity = new_capacity;
 		auto& itor_next = attach();
 

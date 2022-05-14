@@ -119,5 +119,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Queue Hierarchy.cd" />
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

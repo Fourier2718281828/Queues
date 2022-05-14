@@ -80,6 +80,17 @@ void testPeekBackDeque(IPeekBackDeque<int>& d)
 	cout << "----------------------------------------------------" << endl;
 }
 
+void testIterableQueue(IterableQueue<int>& q)
+{
+
+}
+
+void testIterablePeekBackQueue(IterableQueue<int>& q)
+{
+
+}
+
+
 int main(void)
 {
 	/*ArrayDeque<11, int> ad;
