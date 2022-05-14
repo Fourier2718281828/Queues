@@ -252,7 +252,7 @@ namespace exam
 
 		while (!itor_prev.stop())
 		{
-			*itor_next = *itor_prev;
+			*itor_next = std::move(*itor_prev);
 			++itor_next;
 			++itor_prev;
 		}

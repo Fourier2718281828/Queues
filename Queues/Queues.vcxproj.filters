@@ -117,4 +117,7 @@
       <Filter>Header Files\Iterators</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Queue Hierarchy.cd" />
+  </ItemGroup>
 </Project>

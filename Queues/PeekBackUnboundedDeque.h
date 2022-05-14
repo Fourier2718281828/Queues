@@ -29,13 +29,20 @@ namespace exam
 	class PeekBackUnboundedDeque : public UnboundedDeque<T>, public IPeekBackDeque<T>
 	{
 	public:
-		PeekBackUnboundedDeque()											= default;
+		PeekBackUnboundedDeque(const size_t);
 		virtual ~PeekBackUnboundedDeque()									= default;
 		PeekBackUnboundedDeque(const PeekBackUnboundedDeque&)				= delete;
 		PeekBackUnboundedDeque& operator=(const PeekBackUnboundedDeque&)	= delete;
 	private:
 		virtual inline const T& do_peekback(const size_t) const override;
 	};
+
+	template<typename T>
+	inline PeekBackUnboundedDeque<T>::PeekBackUnboundedDeque(const size_t capacity)
+		: UnboundedDeque<T>(capacity)
+	{
+		return;
+	}
 
 	template<typename T>
 	inline const T& PeekBackUnboundedDeque<T>::do_peekback(const size_t i) const

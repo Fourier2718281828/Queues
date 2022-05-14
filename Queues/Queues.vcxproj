@@ -165,6 +165,9 @@
     <ClInclude Include="UnboundedDeque.h" />
     <ClInclude Include="BoundedPQ.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Queue Hierarchy.cd" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

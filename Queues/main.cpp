@@ -96,7 +96,7 @@ int main(void)
 	testPeekBackDeque(pld);
 	testPeekBackDeque(pud);*/
 
-	BoundedPQ<10, int> q;
+	UnboundedPQ<int> q;
 	cout << q << endl;
 	q.put_front(5);
 	cout << q << endl;
