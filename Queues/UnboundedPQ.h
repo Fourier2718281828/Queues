@@ -51,7 +51,7 @@ namespace exam
 		virtual inline size_t	do_capacity()		const		override;
 		virtual inline size_t	do_size()			const		override;
 		virtual inline void		do_pop_front()					override;
-		virtual inline void		do_put_back(const T& value)	override;
+		virtual inline void		do_put_back(const T& value)		override;
 	private:
 		inline void resize(const size_t);
 		inline void emerge(const size_t);

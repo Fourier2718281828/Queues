@@ -3,7 +3,7 @@
   <Class Name="exam::IQueue&lt;T&gt;" Collapsed="true">
     <Position X="8.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAEACABwAAAAAAIIQAAgCBAACAAAAAAEgAEAQAAA=</HashCode>
+      <HashCode>AAEAAEAAABwAgAAAIIIAAAACBAQCAAAAAAAgAEAQAEA=</HashCode>
       <FileName>IQueue.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -45,7 +45,7 @@
   <Class Name="exam::IDeque&lt;T&gt;" Collapsed="true">
     <Position X="3.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAQAAEAAAACgAAAIAAAAAAAAAQAAAAAAAAgAAIAAEA=</HashCode>
+      <HashCode>AAAQAAECAAACAAAAAAAQAAgAAAAAAAAAAAEgAAIAAAA=</HashCode>
       <FileName>IDeque.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -94,14 +94,14 @@
   <Class Name="exam::BoundedPQ&lt;Capacity, T&gt;" Collapsed="true">
     <Position X="8.5" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAEAKAAwBBAEACAAQAAAAAAAAAACAAAAgCEIQAAA=</HashCode>
+      <HashCode>AAACAEAIAAwBBAEAKAAAAAAAAAAAAACAAAAgCEIQAEA=</HashCode>
       <FileName>BoundedPQ.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="exam::UnboundedPQ&lt;T&gt;" Collapsed="true">
     <Position X="10.25" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAEJCAAwBAAAACABQAAQAAAAAAACwAQAgAEIQAAA=</HashCode>
+      <HashCode>AAAAAEJAAAwBAAAAKABAAAQAAAAAAACwAQAgAEIQAEA=</HashCode>
       <FileName>UnboundedPQ.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -115,7 +115,7 @@
   <Class Name="exam::PeekBackUnboundedPQ&lt;T&gt;" Collapsed="true">
     <Position X="10.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAgAAAIgAA=</HashCode>
       <FileName>PeekBackUnboundedPQ.h</FileName>
     </TypeIdentifier>
   </Class>

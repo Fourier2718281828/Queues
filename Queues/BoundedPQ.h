@@ -153,7 +153,7 @@ namespace exam
 
 		for (size_t i = _back; i != _front; i = prev_index(i))
 		{
-			if (_allocator[i] < _allocator[prev_index(i)])
+			if (_allocator[prev_index(i)] < _allocator[i])
 				std::swap(_allocator[prev_index(i)], _allocator[i]);
 		}
 	}

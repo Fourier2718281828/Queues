@@ -25,11 +25,20 @@
 
 namespace exam
 {
+	/*
+	* PeekBackUnboundedPQ does not guarantee that peeking back reveals
+	* elements of the queue in sorted order. Peeking back does not give
+	* the same output as popping and fronting the queue. This is mainly
+	* because binary heap realization does not provide us with such a possibility.
+	* Peeking back generally reveals the inner order of elements (the they make
+	* up in binary heap)
+	*/
+
 	template<typename T>
 	class PeekBackUnboundedPQ : public UnboundedPQ<T>, public IPeekBackQueue<T>
 	{
 	public:
-		PeekBackUnboundedPQ(const size_t);
+		PeekBackUnboundedPQ(const size_t = 0);
 		virtual ~PeekBackUnboundedPQ()								= default;
 		PeekBackUnboundedPQ(const PeekBackUnboundedPQ&)				= delete;
 		PeekBackUnboundedPQ& operator=(const PeekBackUnboundedPQ&)	= delete;

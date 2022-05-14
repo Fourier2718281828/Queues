@@ -29,7 +29,7 @@ namespace exam
 	class PeekBackUnboundedDeque : public UnboundedDeque<T>, public IPeekBackDeque<T>
 	{
 	public:
-		PeekBackUnboundedDeque(const size_t);
+		PeekBackUnboundedDeque(const size_t = 0);
 		virtual ~PeekBackUnboundedDeque()									= default;
 		PeekBackUnboundedDeque(const PeekBackUnboundedDeque&)				= delete;
 		PeekBackUnboundedDeque& operator=(const PeekBackUnboundedDeque&)	= delete;

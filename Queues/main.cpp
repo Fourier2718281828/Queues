@@ -9,6 +9,7 @@
 #include "PeekBackBoundedPQ.h"
 #include "PeekBackUnboundedPQ.h"
 #include <iostream>
+#include <cstdlib>
 using namespace exam;
 using std::cout;
 using std::endl;
@@ -33,7 +34,8 @@ using std::endl;
 // project : Queues, developed by Ruslan Zymovets (SE-1)
 //#############################################################################
 
-void testDeque(IDeque<int>& d)
+template<typename T>
+void testDeque(IDeque<T>& d)
 {
 	cout << typeid(d).name() << endl;
 
@@ -68,6 +70,7 @@ void testDeque(IDeque<int>& d)
 				d.pop_back();
 				cout << "pop_back() : " << d << endl;
 			}
+			if (d.empty()) break;
 			cout << "front = " << d.front() << ", back = " << d.back() << endl;
 		}
 	}
@@ -75,11 +78,31 @@ void testDeque(IDeque<int>& d)
 	{
 		bq.print_diagnosis(cout);
 	}
-	
-	cout << "----------------------------------------------------" << endl;
+
+	cout << "When pop_back or pop_front on an empty queue : " << endl;
+
+	try
+	{
+		d.pop_front();
+	}
+	catch (const IDeque<int>::BadQueue& bq)
+	{
+		bq.print_diagnosis(cout);
+	}
+
+	try
+	{
+		d.pop_back();
+	}
+	catch (const IDeque<int>::BadQueue& bq)
+	{
+		bq.print_diagnosis(cout);
+	}
+	cout << "--------------------------------------------------------------------------" << endl;
 }
 
-void testPeekBackDeque(IPeekBackDeque<int>& d)
+template<typename T>
+void testPeekBackDeque(IPeekBackDeque<T>& d)
 {
 	cout << typeid(d).name() << endl;
 
@@ -101,22 +124,92 @@ void testPeekBackDeque(IPeekBackDeque<int>& d)
 
 	cout << endl;
 
-	cout << "----------------------------------------------------" << endl;
+	cout << "When exceeded the limits : " << endl;
+	try
+	{
+		d.peekback(d.size());
+	}
+	catch (const IPeekBackDeque<T>::BadQueue& bq)
+	{
+		bq.print_diagnosis(cout);
+	}
+
+	cout << "--------------------------------------------------------------------------" << endl;
 }
 
-void testIterableQueue(IterableQueue<int>& q)
+template<typename T>
+void testIterableQueue(IterableQueue<T>& d)
 {
+	cout << typeid(d).name() << endl;
+	srand(time(NULL));
+	size_t r = 0;
+	cout << "Filling with random numbers : " << endl;
+	for (size_t i = 0u; i < 7; ++i)
+	{
+		r = rand() % 20 + 1;
+		d.put_back(r);
+		cout << "put_back(" << r << ") : " << d << endl;
+		cout << "front (max) = " << d.front() << endl;
+	}
 
+	cout << "Popping and getting a sorted array : " << endl;
+	const size_t size = d.size();
+	int* arr = new int[size];
+
+	cout << d << endl;
+	
+	for (size_t i = 0u; !d.empty(); ++i)
+	{
+		arr[i] = d.front();
+		d.pop_front();
+		cout << d << endl;
+	}
+
+	cout << "The resulting array : ";
+	for (size_t i = 0u; i < size; ++i)
+	{
+		cout << arr[i] << (i == size - 1 ? "" : ", ");
+	}
+	cout << endl;
+
+	delete[] arr; arr = nullptr;
+
+	cout << "--------------------------------------------------------------------------" << endl;
 }
 
-void testPeekBackQueue(IPeekBackQueue<int>& q)
+template<typename T>
+void testPeekBackQueue(IPeekBackQueue<T>& d)
 {
-
+	cout << typeid(d).name() << endl;
+	srand(time(NULL));
+	size_t r = 0;
+	cout << "Filling with random numbers : " << endl;
+	for (size_t i = 0u; i < 7; ++i)
+	{
+		r = rand() % 20 + 1;
+		d.put_back(r);
+		cout << "put_back(" << r << ") : " << d << endl;
+		cout << "front (max) = " << d.front() << endl;
+	}
+	cout << "Print the queue using peekback method (not necessarily sorted): " << endl;
+	for(size_t i = 0u; i < d.size(); ++i)
+	{
+		cout << d.peekback(i) << (i == d.size() - 1 ? "" : ", ");
+	}
+	cout << endl;
+	cout << "--------------------------------------------------------------------------" << endl;
 }
 
 
 int main(void)
 {
+	cout << "##########################################################################" << endl;
+	cout << "Testing Deques" << endl;
+	cout << "ArrayDeque \t- deque implementation on cyclic array" << endl;
+	cout << "ListDeque \t- deque implementation on list" << endl;
+	cout << "UnboundedDeque \t- deque implementation on resizable cyclic array" << endl;
+	cout << "--------------------------------------------------------------------------" << endl;
+
 	ArrayDeque<11, int> ad;
 	ListDeque<int> ld;
 	UnboundedDeque<int> ud;
@@ -124,35 +217,45 @@ int main(void)
 	testDeque(ld);
 	testDeque(ud);
 
-	/*PeekBackArrayDeque<11, int> pad;
+	cout << "##########################################################################" << endl;
+	cout << "Testing Deques" << endl;
+	cout << "PeekBackArrayDeque \t- peek-back deque impl. on cyclic array" << endl;
+	cout << "PeekBackListDeque \t- peek-back deque impl. on list" << endl;
+	cout << "PeekBackUnboundedDeque \t- peek-back deque impl. on resizable cyclic array" << endl;
+	cout << "--------------------------------------------------------------------------" << endl;
+
+	PeekBackArrayDeque<11, int> pad;
 	PeekBackListDeque<int> pld;
 	PeekBackUnboundedDeque<int> pud;
 	testPeekBackDeque(pad);
 	testPeekBackDeque(pld);
-	testPeekBackDeque(pud);*/
+	testPeekBackDeque(pud);
 
-	/*UnboundedPQ<int> q;
-	cout << q << endl;
-	q.put_back(5);
-	cout << q << endl;
-	q.put_back(4);
-	cout << q << endl;
-	q.put_back(10);
-	cout << q << endl;
-	q.put_back(8);
-	cout << q << endl;
-	q.pop_front();
-	cout << q << endl;
-	q.put_back(7);
-	cout << q << endl;
-	q.put_back(1);
-	cout << q << endl;
-	q.put_back(1);
-	q.put_back(1);
-	q.put_back(1);
-	cout << q << endl;
-	q.put_back(0);
-	cout << q << endl;*/
+
+	cout << "##########################################################################" << endl;
+	cout << "Testing Priority Queues" << endl;
+	cout << "BoundedPQ \t- pq implementation on sorted array" << endl;
+	cout << "UnboundedPQ \t- pq implementation on binary heap (array not sorted!)" << endl;
+	cout << "--------------------------------------------------------------------------" << endl;
+
+
+	BoundedPQ<11, int> bpq;
+	UnboundedPQ<int> ubpq;
+
+	testIterableQueue(bpq);
+	testIterableQueue(ubpq);
+
+	cout << "##########################################################################" << endl;
+	cout << "Testing Priority Queues" << endl;
+	cout << "PeekBackBoundedPQ   - peek-back pq impl. on sorted array" << endl;
+	cout << "PeekBackUnboundedPQ - peek-back pq impl. on bin. heap (array not sorted!)" << endl;
+	cout << "--------------------------------------------------------------------------" << endl;
+
+	PeekBackBoundedPQ<11, int> pbpq;
+	PeekBackUnboundedPQ<int> pupq;
+
+	testPeekBackQueue(pbpq);
+	testPeekBackQueue(pupq);
 
 	return 0;
 }
